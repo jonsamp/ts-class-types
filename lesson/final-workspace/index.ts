@@ -35,3 +35,4 @@ myCodeRunner.runCommand();
 
 const myDebugCodeRunner = new DebugCodeRunner(); // exercise 5.3: instantiate instance
 myDebugCodeRunner.printDebugInfo(); // excersize 5.4: call debug
+// myDebugCodeRunner.getOperatingSystem(); // excersize 5.5: call debug

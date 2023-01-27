@@ -1,5 +1,5 @@
 class CodeRunner {
-  readonly command: string = ''; // exercise 4.1: add readonly
+  readonly command: string = '';
 
   constructor(command?: string) {
     if (command !== undefined) {
@@ -8,12 +8,11 @@ class CodeRunner {
   }
 
   public runCommand() {
-    this.command = 'return null'; // exercise 4.2: errror on purpose
     this.printPreCommandMessage();
     eval(this.command);
   }
 
-  getOperatingSystem() {
+  protected getOperatingSystem() { // exercise 5.1: add protected
     return 'ubuntu-latest';
   }
 
@@ -25,8 +24,13 @@ class CodeRunner {
 class DebugCodeRunner extends CodeRunner {
   public printDebugInfo() {
     console.log(`Server date: ${new Date()}`);
+    console.log(`Operating system: ${this.getOperatingSystem()}`);
   }
 }
 
 const myCodeRunner = new CodeRunner("console.log('hello world')")
 myCodeRunner.runCommand();
+
+const myDebugCodeRunner = new DebugCodeRunner();
+myDebugCodeRunner.printDebugInfo(); // excersize 5.2: call debug
+myDebugCodeRunner.getOperatingSystem(); // excersize 5.3: call debug
